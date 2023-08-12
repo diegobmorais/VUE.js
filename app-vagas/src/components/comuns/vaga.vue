@@ -11,6 +11,7 @@
 </template>
 
 <script>
+
 export default{
     name: 'Vaga',
     props:['titulo','descricao', 'salario','modalidade','tipo','publicacao',]
