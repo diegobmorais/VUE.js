@@ -1,4 +1,4 @@
 # Portifolio
-
-#app despesas criado com JS puro 
+Tecnologias: vue.js e php
+#EM DESENVOLVIMENTO 
  
