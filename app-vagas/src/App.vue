@@ -11,6 +11,7 @@ import Topo from './components/layouts/Topo.vue'
 
 export default{
   name: "App",
+  
   components:{
     Topo,
     Conteudo,
