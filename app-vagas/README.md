@@ -1,6 +1,7 @@
 # app-vagas
 
-This template should help get you started developing with Vue 3 in Vite.
+Projeto desenvolvido com Vue 3 no Vite.
+Projeto tem o intuitu de apresentar uma aplicação que cria um cadastro de vagas de emprego.
 
 ## Recommended IDE Setup
 
@@ -14,6 +15,8 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ```sh
 npm install
+npm install vue-router@
+npm install --save mitt
 ```
 
 ### Compile and Hot-Reload for Development
@@ -22,8 +25,3 @@ npm install
 npm run dev
 ```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
