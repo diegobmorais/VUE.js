@@ -1,4 +1,5 @@
 <template>
+  <topo></topo>
     <div class="container py-4">
       <div class="row">
         <div class="col">
@@ -31,15 +32,17 @@
     </div>
   </template>
   
-  <script>
-  import PesquisarVaga from "../comuns/PesquisarVaga.vue";
-  import Indicador from "../comuns/Indicador.vue";
-  import Vaga from "../comuns/vaga.vue";
+  <script>  
+  import Indicador from "../comuns/Indicador.vue"
+  import PesquisarVaga from "../comuns/PesquisarVaga.vue" 
+  import Topo from "@/components/layouts/Topo.vue";
+  import Vaga from "../comuns/vaga.vue"
 
   export default {
     nome: "Home",
   
     components: {
+      Topo,
       PesquisarVaga,
       Indicador,
       Vaga,

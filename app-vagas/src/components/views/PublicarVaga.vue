@@ -1,5 +1,6 @@
 
 <template>
+  <topo></topo>
   <div class="container py-4">
     <div class="row">
       <div class="col">
@@ -56,6 +57,8 @@
 </template>
   
 <script>
+import Topo from '@/components/layouts/Topo.vue'
+
 export default {
   nome: "PublicarVaga",
 
@@ -67,11 +70,18 @@ export default {
     tipo: '',
   }),
 
+  components: {
+    Topo
+  },
+
   methods: {
     salarVaga() {
+      let tempoDecorrido = Date.now()
+      let dataAtual = new Date(tempoDecorrido)
+
       let vagas = JSON.parse(localStorage.getItem('vagas'))
 
-      if(!vagas) vagas = []
+      if (!vagas) vagas = []
 
       let vaga = {
         titulo: this.titulo,
@@ -79,12 +89,49 @@ export default {
         salario: this.salario,
         modalidade: this.modalidade,
         tipo: this.tipo,
+        publicacao: dataAtual.toDateString()
       }
       vagas.push(vaga)
+      // validar formulario
+      if (this.validarFormulario()) {
+        // grava dados no localstorage
+        localStorage.setItem('vagas', JSON.stringify(vagas))
+        //evento de alerta personalizado
+        this.emitter.emit('alerta', {
+          tipo: 'sucesso',
+          titulo: `A vaga ${this.titulo} foi cadastrada com sucesso!!`,
+          descricao: 'Parabéns, a vaga já pode ser consultada por milhares de profissionais.'
+        })
+        // resetar formulario apos cadastro
+        this.reseteForm()
 
-      // grava dados no localstorage
-      localStorage.setItem('vagas', JSON.stringify(vagas))
-   }
+      } else {
+        this.emitter.emit('alerta', {
+          tipo: 'erro',
+          titulo: 'Opss.. Não foi possível realizar o cadastro',
+          descricao: 'Por favor, é necessário preencher todos os campos do formulário.'
+        })
+      }
+
+    },
+
+    reseteForm() {
+      this.titulo = "",
+        this.descricao = '',
+        this.salario = '',
+        this.modalidade = '',
+        this.tipo = ''
+    },
+    validarFormulario() {
+      let valido = true
+
+      if (this.titulo === '') valido = false
+      if (this.salario === '') valido = false
+      if (this.modalidade === '') valido = false
+      if (this.tipo === '') valido = false
+
+      return valido
+    }
   }
 }
 </script>

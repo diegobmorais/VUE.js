@@ -1,20 +1,29 @@
 <template>
-  <div>
-    <topo></topo>
-    <conteudo></conteudo>
+  <div>    
+    <vagas-favoritas></vagas-favoritas>      
+    <router-view></router-view>
+     
   </div>
 </template>
 
 <script>
-import Conteudo from './components/layouts/Conteudo.vue'
-import Topo from './components/layouts/Topo.vue'
+
+import VagasFavoritas from './components/comuns/VagasFavoritas.vue'
 
 export default{
-  name: "App",
-  
-  components:{
-    Topo,
-    Conteudo,
+  name: "App", 
+
+  data:()=>({
+    
+  }),
+
+  components:{   
+    VagasFavoritas,   
+  },
+  mounted(){
+    this.emitter.on('alerta', ()=>{
+      this.exibirAlerta = true
+    })
   }
 }
 
