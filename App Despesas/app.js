@@ -178,18 +178,7 @@ function carregaListaDespesas(despesas = Array(), filtro = false) {
     if(despesas.length == 0 && filtro == false){
 		despesas = bd.recuperarTodosRegistros() 
 	}
-	
 
-	/*
-
-	<tr>
-		<td>15/03/2018</td>
-		<td>Alimentação</td>
-		<td>Compras do mês</td>
-		<td>444.75</td>
-	</tr>
-
-	*/
 
 	let listaDespesas = document.getElementById("listaDespesas")
     listaDespesas.innerHTML = ''
