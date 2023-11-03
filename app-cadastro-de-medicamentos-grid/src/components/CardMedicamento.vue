@@ -1,7 +1,7 @@
 <template>
     <div class="container col">
         <div class="card">
-            <div class="card-content">
+            <div class="card-content form">
                 <span v-if="favorito">Favorito</span>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeAIynV2wxF6tf5nAk3zcTuArf64ekOSMMMQ&usqp=CAU"
                     width="100" alt="Imagem do medicamento">
@@ -34,6 +34,7 @@ export default {
     width: 220px;
     background-color: rgb(253, 253, 253);
     padding: 8px;
+    justify-content: flex-start;
 }
 
 .container {
@@ -44,7 +45,7 @@ export default {
 .container-favorito {
     display: flex;
     padding-top: 15px;
-    width: 100%;    
+     
     justify-content: end;  
 }
 
